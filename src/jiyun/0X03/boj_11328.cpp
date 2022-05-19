@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-int alpha[26];
 int main(void)
 {
     ios::sync_with_stdio(0);
@@ -16,8 +15,8 @@ int main(void)
     for (int i = 0; i < N; i++)
     {
         cin >> a >> b;
-    
 
+        int alpha[26] = {};
         for (int i = 0; i < a.size(); i++)
         {
             alpha[a[i] - 'a']++;
