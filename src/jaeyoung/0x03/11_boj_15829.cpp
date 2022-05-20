@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-unsigned long long ft_expo(int n)
+unsigned long long ft_expo(int n, unsigned long long m)
 {
     int i;
     unsigned long long res;
@@ -11,7 +11,10 @@ unsigned long long ft_expo(int n)
         return (1);
     i = 0;
     while (i++ < n)
+    {
         res *= 31;
+        res %= m;
+    }
     return (res);
 }
 
@@ -24,6 +27,7 @@ int main()
     int i;
     unsigned long long j;
     unsigned long long sum;
+    unsigned long long m = 1234567891;
     int num[26] = {};
     char    s;
 
@@ -36,8 +40,8 @@ int main()
     while (i < n)
     {
         cin >> s;
-        j = ft_expo(i);
-        sum += num[s - 'a'] * j;
+        j = ft_expo(i, m);
+        sum = (sum + num[s - 'a'] * j) % m;
         i++;
     }
     cout << sum;
