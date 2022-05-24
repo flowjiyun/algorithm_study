@@ -18,7 +18,8 @@ int main()
   { 
     if(i % k == k-1)
         ans.push_back(V[i]);
-    else V.push_back(V[i]);
+    else 
+        V.push_back(V[i]);
   }
 
   cout << "<";
