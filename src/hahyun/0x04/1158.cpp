@@ -25,7 +25,7 @@ int main()
                 cur = L.begin();
         }
 
-        cout << *cur << ',';
+        cout << *cur << ", ";
 
         cur = L.erase(cur);
         if (cur == L.end())
