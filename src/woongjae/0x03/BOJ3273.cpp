@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
     int n;
     int i;
     int x;
@@ -10,23 +14,25 @@ int main()
 
     cnt = 0;
     i = 0;
-    scanf("%d", &n);
+    cin >> n;
     int arr[n];
     while (i < n)
     {
-        scanf("%d", &arr[i]);
+        cin >> arr[i];
         i++;
     }
     i = 0;
-    scanf("%d", &x);
-    for (int i = 0; i < n; i++)
+    cin >> x;
+    while (i < n - 1)
     {
-        for (int j = i + 1; j < n; j++)
+        j = i + 1;
+        while (j < n)
         {
-            if ((arr[i] + arr [j]) == x)
+            if(x == (arr[i] + arr[j]))
                 cnt++;
+            j++;
         }
+        i++;
     }
-
-    printf("%d\n", cnt);
+    cout << cnt;
 }
