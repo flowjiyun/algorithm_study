@@ -5,7 +5,6 @@ using namespace std;
 int main(void) {
     string s1, s2;
     cin >> s1 >> s2;
-    // int total = s1.length() + s2.length();
 
     int arr[26] = {};
     for (char c: s1) arr[c - 'a']++;
