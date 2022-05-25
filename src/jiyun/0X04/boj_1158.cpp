@@ -16,10 +16,10 @@ int main()
 
   for (int i = 0; ans.size() < n; i++)
   { 
-    if(i % k == k-1)
+    if(i % k == k-1) // 조건 충족시 정답 수열에 해당 값 저장
         ans.push_back(V[i]);
     else 
-        V.push_back(V[i]);
+        V.push_back(V[i]); // 불충족시 뒤로 연결
   }
 
   cout << "<";

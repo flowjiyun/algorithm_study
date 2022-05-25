@@ -21,7 +21,7 @@ void traverse(struct Node *head)
     }
 }
 
-void insert(struct Node *addr, int data)
+void InsertNode(struct Node *addr, int data)
 {
     struct Node *newnode = (struct Node*)malloc(sizeof(struct Node));
     newnode->data = data;
