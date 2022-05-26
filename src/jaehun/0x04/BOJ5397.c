@@ -1,4 +1,4 @@
-//키로거
+//키로거 이거틀림
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -32,23 +32,19 @@ int main() {
                     if (cur->next != NULL) {
                         cur->prev->next = cur->next;
                         cur->next->prev = cur->prev;
-                        printf("1");//
                     }
                     else if (cur->next == NULL) {
                         cur->prev->next = NULL;
                         cur = cur->prev;
-                        printf("2");//
                     }
                 }
                 else if (cur->prev->prev != NULL) {
                     if (cur->next != NULL) {
                         cur->prev->prev->next = cur->next;
                         cur->next->prev = cur->prev->prev;
-                        printf("3");//
                     }
                     else if (cur->next == NULL) {
                         cur->prev->prev->next = NULL;
-                        printf("4");//
                     }
                 }
                 else
