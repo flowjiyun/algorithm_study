@@ -14,7 +14,7 @@ int main()
     }
     for (int i = 0; i < 2; i++)
     {
-        for (int j = 0; j < 7; j++)
+        for (int j = 1; j < 7; j++)
         {
             count += arr[i][j] / 2;
             if (arr[i][j] % 2)
