@@ -49,25 +49,25 @@ int back() {
 }
 
 int main() {
-    int n, m, z, cnt=0;
+    int n, m, z, sum=0;
     scanf("%d %d", &n, &m);
     for (int i=1; i<=n; i++) {
         push_back(i);
     }
     for (int i=0; i<m; i++) {
-        int idx=0;
+        int cnt=0;
         scanf(" %d", &z);
         while (front() != z) {
             push_back(pop_front());
-            idx++;
+            cnt++;
         }
-        if (idx > n/2) {
-            cnt += n-idx;
+        if (cnt > n/2) {
+            sum += n-cnt;
         }
         else
-            cnt += idx;
+            sum += cnt;
         pop_front();
         n--;
     }
-    printf("%d", cnt);
+    printf("%d", sum);
 }
