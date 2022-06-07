@@ -18,28 +18,28 @@ int main(void)
     for (int testNo = 0; testNo < TC; testNo++)
     {
         bool escape = false;
-        queue<pair<int, int>> Qf = {}, Qs = {};
-        cin >> bY >> bX;
+        queue<pair<int, int>> Qf = {}, Qs = {};         // declare the queue inside the main function because the queue has to be initialized when the case is changed.
+        cin >> bY >> bX;                                // resize the size of the board.
         for (int i = 0; i < bX; i++)
         {
-            fill(visF[i], visF[i] + bY, 0);
-            fill(visS[i], visS[i] + bY, 0);
+            fill(visF[i], visF[i] + bY, 0);             // initialize the visit array of fire and the person who is inside the board.
+            fill(visS[i], visS[i] + bY, 0);             
         }
         for (int i = 0; i < bX; i++)
             for (int j = 0; j < bY; j++)
             {
                 char c;
-                cin >> c;
+                cin >> c;                               // put the input value to the board to char so check every value of the input value.
                 if (c == '#')
-                board[i][j] = -1;
+                board[i][j] = -1;                       // if the character is '#' it means it is the wall. so initialize it as -1.
                 else 
                 {
-                    if (c == '@')
+                    if (c == '@')                       // it is primal point of the person. push it to the person queue.
                     {
                         Qs.push({i, j});
                         visS[i][j] = 1;
                     } 
-                    else if (c == '*') 
+                    else if (c == '*')                  // it means it is fire. push it to fire queue.
                     {
                         Qf.push({i, j});
                         visF[i][j] = 1;
