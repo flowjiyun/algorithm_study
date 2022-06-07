@@ -9,10 +9,11 @@ int main(){
     cin >> N >> L;
     deque<int> seqDq;
     deque<int> minDq;
-    minDq.push_back(1234567890);
+    // minDq.push_back(1234567890);
     for(int i = 1; i <= N ; i++){
         cin >> ipt;
         seqDq.push_back(ipt);
+        // [A(i - L + 1 ) , A(i)] : i - ( i - L  +1 ) + 1 =  L
         if(seqDq.size() == L + 1){
             if(seqDq.front() == minDq.front()){
                 minDq.pop_front();

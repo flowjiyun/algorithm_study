@@ -24,9 +24,9 @@ int main(){
                 dq.push_back(dq.front());
                 dq.pop_front();
             }
-        }else if (cursor > dq.size() / 2){
+        }else{
             int r = dq.size() - cursor;
-            sum += r;
+            sum += r ;
             while(r--){
                 // cout << "back -> front : "<< dq.back() << endl;
                 dq.push_front(dq.back());

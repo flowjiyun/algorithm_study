@@ -2,6 +2,7 @@
 #include <stack>
 #include <string>
 #include <utility>
+#include <deque>
 using namespace std;
 
 char op(char ch){
@@ -24,6 +25,9 @@ int main(){
     string ipt;
     int ans = 0;
     cin >> ipt;
+    // (()[[]])([])
+    // ( [ 
+    // 0 0 
     for(char &ch : ipt){
         if(ch == '(' || ch == '['){
             s.push(make_pair(ch, 0));

@@ -9,7 +9,7 @@ int main(){
     int T;
     cin >> T;
     while(T--){
-        deque<int> dq;
+        deque<int> dq; // size : 0
         string fun, ipts;
         bool isFront = true, success = true;
         int n, i = 0;

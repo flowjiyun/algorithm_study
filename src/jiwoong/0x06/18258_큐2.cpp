@@ -1,50 +1,52 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#define MAXSIZE 2000001
+#define MAXSIZE 5
 
 template <typename T>
 class Queue{
 private:
     T* data;
-    int back_;
-    int front_;
+    int tail;
+    int head;
 public:
     Queue(int maxSize = MAXSIZE):data(new T[maxSize]){
-        back_ = 0;
-        front_ = 0;
+        tail = 1;
+        head = 0;
     }
     void push(T data_){
-        if (front_ == back_ + 1){
+        if (head == tail){
             return ;
         }else{
-            data[back_] = data_;
-            back_ = (back_ + 1) % MAXSIZE;
+            data[tail] = data_;
+            tail = (tail + 1) % MAXSIZE;
         }
     }
     void pop(){
-        front_ = (front_ + 1) % MAXSIZE;
+        head = (head + 1) % MAXSIZE;
     }
     int size(){
-        if (back_ >= front_)
-            return (back_ - front_);
+        if (tail > head)
+            return (tail - head - 1);
         else
-            return (MAXSIZE - (front_ - back_ - 1));
+            return (MAXSIZE - 1 - (head - tail));
     }
     void print(){
-        cout << back_ << " " << front_ << endl;
-        for (int i = front_ ; i < back_ ; i++)
+        cout << head << " " << tail << endl;
+        for (int i = (head + 1) % MAXSIZE; i != tail ; i = (i + 1) % MAXSIZE)
             cout << data[i] << " ";
         cout << endl;
     }
     bool empty(){
-        return (back_ == front_);
+        return ((head + 1) % MAXSIZE == tail);
     }
     T front(){
-        return data[front_];
+        return data[(head + 1) % MAXSIZE];
     }
     T back(){
-        return data[back_ - 1];
+        if (tail - 1 < 0)
+            return data[MAXSIZE - 1];
+        return data[tail - 1];
     }
     ~Queue(){
         delete [] data;
@@ -57,7 +59,7 @@ int main(){
     Queue<int> q;
     int N;
     cin >> N;
-    // q.print();
+    q.print();
     while(N--){
         string cmd;
         cin >> cmd;
@@ -87,7 +89,7 @@ int main(){
         }else if(cmd == "size"){
             cout << q.size() << "\n";
         }
-        // q.print();
+        q.print();
     }
     return 0;
 }
