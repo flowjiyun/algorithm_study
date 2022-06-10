@@ -24,13 +24,21 @@ int main(void)
     queue<tuple<int, int, int>> Q;
     cin >> k;
     cin >> w >> h;
+    for (int i = 0; i < k + 1; i++)
+    {
+        for (int j = 0; j < h; j++)
+        {
+            for (int k = 0; k < w; k++)
+                vis[i][j][k] = -1;
+        }
+    }
     for (int i = 0; i < h; i++)
     {
         for (int j = 0; j < w; j++)
             cin >> board[i][j];
     }
 
-    vis[0][0][0] = 1;
+    vis[0][0][0] = 0;
     Q.push({0, 0, 0});
     while (!Q.empty())
     {
@@ -38,7 +46,7 @@ int main(void)
         int cnt, x, y;
         tie(cnt, x, y) = cur;
         Q.pop();
-        if (cnt < k)
+        if (cnt < k + 1)
         {
             for (int dir = 0; dir < 8; dir++)
             {
@@ -46,11 +54,11 @@ int main(void)
                 int ny = y + hy[dir];
                 if (nx < 0 || nx >= h || ny < 0 || ny >= w)
                     continue;
-                if (board[x][y] == 1)
+                if (board[nx][ny] == 1)
                     continue;
-                if (vis[cnt][x][y] != 0)
+                if (vis[cnt + 1][nx][ny] >= 0)
                     continue;
-                vis[cnt + 1][nx][ny] = 1;
+                vis[cnt + 1][nx][ny] = vis[cnt][x][y] + 1;
                 Q.push({cnt + 1, nx, ny});
             }
         }
@@ -60,22 +68,33 @@ int main(void)
             int ny = y + my[dir];
             if (nx < 0 || nx >= h || ny < 0 || ny >= w)
                 continue;
-            if (board[x][y] == 1)
+            if (board[nx][ny] == 1)
                 continue;
-            if (vis[cnt][x][y] != 0)
+            if (vis[cnt][nx][ny] >= 0)
                 continue;
-            vis[cnt][nx][ny] = 1;
+            vis[cnt][nx][ny] = vis[cnt][x][y] + 1;
             Q.push({cnt, nx, ny});
         }
     }
-
-    int ans = 400;
-    for (int i = 0; i < k; i++)
+    /*
+    for (int i = 0; i < k + 1; i++)
     {
-        if (vis[k][h - 1][w - 1] != 0 && ans > vis[k][h - 1][w - 1])
-            ans = vis[k][h - 1][w - 1];
+        for (int j = 0; j < h; j++)
+        {
+            for (int k = 0; k < w; k++)
+                cout <<  vis[1][j][k] << ' ';
+            cout << '\n';
+        }
     }
-    if (ans == 400)
+    */
+    int ans = 2100000000;
+
+    for (int i = 0; i < k + 1; i++)
+    {
+        if (vis[i][h - 1][w - 1] != -1 && ans > vis[i][h - 1][w - 1])
+            ans = vis[i][h - 1][w - 1];
+    }
+    if (ans == 2100000000)
         cout << -1;
     else
         cout << ans;
