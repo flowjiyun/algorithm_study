@@ -15,7 +15,7 @@ bool canMove(int nr, int nc, vector<string>& map){
     if(map[nr][nc] != '.') return false;
     return true;
 }
-// map 의 원래 메모리주소를 함수내에서도 공유해서 사용할 수 있다.
+
 bool canBurn(int nr, int nc, vector<string>& map){
     if(nr < 0 || nr >= map.size()) return false;
     if(nc < 0 || nc >= map[0].size()) return false;
