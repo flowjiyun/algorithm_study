@@ -47,9 +47,16 @@ void recur(int x, int y, int size)
 	}
 	
 	recur(x, y, size/3);
-	recur(x, y+size/3, size/3);
 	recur(x+size/3, y, size/3);
+	recur(x+2*size/3, y, size/3);
+
+	recur(x, y+size/3, size/3);
 	recur(x+size/3, y+size/3, size/3);
+	recur(x+2*size/3, y+size/3, size/3);
+
+	recur(x, y+2*size/3, size/3);
+	recur(x+size/3, y+2*size/3, size/3);
+	recur(x+2*size/3, y+2*size/3, size/3);
 }
 
 int main()
