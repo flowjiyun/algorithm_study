@@ -28,6 +28,7 @@ bool isConnected(int nr, int nc, int id){
     return (distMap[nr][nc].ID != 0 && distMap[nr][nc].ID != id);
 }
 
+// 모서리 풀이
 
 int main(){
     int id = 1;
@@ -74,22 +75,23 @@ int main(){
         tie(r, c) = fq.front();
         fq.pop();
 
-        // cout << "\n";
-        // for(auto & vec : distMap){
-        //     for(auto & ele : vec){
-        //         // cout << "( "<< ele.ID << " , " << ele.DIST << " ) ";
-        //         cout << ele.DIST << " ";
-        //     }
-        //     cout << "\n";
-        // }
-        // cout << "\n";
+        cout << "\n";
+        for(auto & vec : distMap){
+            for(auto & ele : vec){
+                // cout << "( "<< ele.ID << " , " << ele.DIST << " ) ";
+                cout << ele.ID << " ";
+            }
+            cout << "\n";
+        }
+        cout << "\n";
 
         for(int d = 0 ; d < 4 ;d++){
             int nr = r + dr[d], nc = c + dc[d];
             if(isOcean(nr,nc)){
                 fq.push(make_pair(nr, nc));
                 distMap[nr][nc] = make_pair(distMap[r][c].ID, distMap[r][c].DIST + 1);
-            }else if(isConnected(nr, nc, distMap[r][c].ID)){
+            }
+            else if(isConnected(nr, nc, distMap[r][c].ID)){
                 ans.push_back(distMap[r][c].DIST + distMap[nr][nc].DIST);
             }
         }

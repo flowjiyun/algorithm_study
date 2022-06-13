@@ -27,10 +27,8 @@ int main(){
             int ans = MAXSIZE + 1;
             // cin >> N >> K;
             cout << N << " " << K << "\n";
-            vector<int> timeK(MAXSIZE + 1);
-            vector<int> timeC(MAXSIZE + 1);
-            timeC.assign(MAXSIZE + 1, -1);
-            timeK.assign(MAXSIZE + 1, -2);
+            vector<int> timeK(MAXSIZE + 1, -1);
+            vector<int> timeC(MAXSIZE + 1, -2);
             queue<int> q;
             while(K + step <= MAXSIZE){
                 K += step;
