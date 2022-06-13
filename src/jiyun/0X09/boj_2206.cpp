@@ -20,6 +20,7 @@ int main(void)
     int state = 0;
     int valid = 0;
     cin >> n >> m;
+    // 1 / 1 입력시 결과 확인
     if (n == 1 && m == 1)
     {
         cout << 1;
