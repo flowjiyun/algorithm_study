@@ -21,6 +21,7 @@ void draw(int sr, int sc, int size){
     draw(sr + size / 2, sc - size / 2, size / 2);
     draw(sr + size / 2, sc + size / 2, size / 2);
 }
+
 int main(){
     cin >> N;
     map.resize(N);

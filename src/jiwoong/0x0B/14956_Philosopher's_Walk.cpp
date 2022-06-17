@@ -19,8 +19,8 @@ int stay(int curState){
     return curState;
 }
 
-// [state][area]
-int (*nextState[4][4])(int) ={
+// [state][area] : int => int 
+int (*nextState[4][4])(int) = {
     {goNext, stay, stay, goPrev},
     {goPrev, stay, stay, goNext},
     {goNext, stay, stay, goPrev},
@@ -49,22 +49,22 @@ void makeNextStart(int &nx, int &ny, const int & sx, const int & sy, int area, i
 }
 
 /*
-    상태 0:
-    area 0 : sx, sy
-    area 1 : sx, sy + 2^(k - 1)
+    상태 0 :
+    area 0 : sx, sy [0, 4^(k- 1))
+    area 1 : sx, sy + 2^(k - 1) [4^(k- 1), 4^(k- 1) * 2]
     area 2 : sx + 2^(k - 1), sy + 2^(k - 1)
     area 3 : sx + 2^k - 1, sy + 2^(k - 1) -1
-    상태 1:
-    area 0 : sx, sy
+    상태 1 :
+    area 0 : sx, sy 
     area 1 : sy, sx + 2^(k - 1)
     area 2 : sx + 2^(k - 1), sy + 2^(k - 1)
     area 3 : sy + 2^k - 1, sx + 2^(k - 1) -1
-    상태 2:
+    상태 2 :
     area 0 : sx, sy
     area 1 : sx, sy - 2^(k - 1)
     area 2 : sx - 2^(k - 1), sy - 2^(k - 1)
     area 3 : sx - 2^k - 1, sy - 2^(k - 1) -1
-    상태 3:
+    상태 3 :
     area 0 : sx, sy
     area 1 : sy, sx + 2^(k - 1)
     area 2 : sy - 2^(k - 1), sx - 2^(k - 1)

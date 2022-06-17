@@ -16,6 +16,13 @@ void findNum(int num,int sr, int sc, int level){
     // cout << sr << " , " << sc << endl;
     findNum(nxt,sr + rcon * po[level - 1][0], sc + ccon * po[level - 1][0], level - 1);
 }
+// n = k 일때 방문순서 x
+// n = k + 1일때 
+/*
+    열만 넘었을 떄 : 단위 상자의 크기 * 1 + findNum(k)
+    행만 넘었을 떄 : 단위 상자의 크기 * 2 + findNum(k)
+    둘다 넘었을 때 : 단위 상자의 크기 * 3 + findNum(k)
+*/
 int main(){
     po[0][0] = 1;
     po[0][1] = 1;

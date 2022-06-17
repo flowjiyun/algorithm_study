@@ -5,7 +5,7 @@ using namespace std;
 int cnt(int n){
     if (n == 1) return 1;
     if (n == 2) return 3;
-    return cnt(n - 1) + 1 + cnt(n - 1);
+    return 2 * cnt(n - 1) + 1;
 }
 
 void move(int n, int src, int oth, int des){
@@ -24,6 +24,12 @@ void move(int n, int src, int oth, int des){
     move(n - 1, oth, src, des); // n - 1 개 : oth -> des
 }
 
+// cnt(1) : 1
+// cnt(2) : 3
+// cnt(3) : 2*cnt(2) + 1
+
+// cnt(n) : 2*cnt(n - 1) + 1
+// cnt(n) - 1 
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
