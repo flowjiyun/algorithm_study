@@ -16,6 +16,7 @@ void run(int x)
         cur = arr[cur];
         if (state[cur] == x)
         {
+
             while (state[cur] != -1)
             {
                 state[cur] = -1;
@@ -36,12 +37,12 @@ int main()
     while (T--)
     {
         cin >> n;
-        fill (state + 1, state + n + 1, 0);
+        fill (state + 1, state + n + 1, 0); // initialize the state as value of zero
         for (int i = 1; i <= n; i++)
             cin >> arr[i];
         for (int i = 1; i <= n; i++)
         {
-            if (state[i] == 0)
+            if (state[i] == 0)      // if you didn't visited
                 run(i);
         }
         int cnt = 0;

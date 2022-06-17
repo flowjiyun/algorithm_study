@@ -26,12 +26,12 @@ int bfs(int i, int j)
                 continue;
             if (visited[nx][ny][w])
                 continue;
-            if (!board[nx][ny])
+            if (!board[nx][ny])     //when you can go to anywhere, previous state + 1 is current course.
             {
                 visited[nx][ny][w] = visited[x][y][w] + 1;
                 q.push({nx, ny, w});
             }
-            if (!w && board[nx][ny])
+            if (!w && board[nx][ny])    // if you didn't break the wall and can't go anywhere.
             {
                 visited[nx][ny][1] = visited[x][y][0] + 1;
                 q.push({nx, ny, 1});
