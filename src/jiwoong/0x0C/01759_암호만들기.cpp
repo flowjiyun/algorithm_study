@@ -26,11 +26,11 @@ void select(int start, int len, int ja, int mo){
         if(ja >= 2 && mo >= 1) cout << passwd << "\n";
         return ;
     }
+    if(start > C)
+        return ;
     passwd[len] = charset[start];
-    if(start + 1 <= C){
-        select(start + 1, len + 1, ja + isJa(charset[start]), mo + !isJa(charset[start]));
-        select(start + 1, len, ja, mo);
-    }
+    select(start + 1, len + 1, ja + isJa(charset[start]), mo + !isJa(charset[start]));
+    select(start + 1, len, ja, mo);
 }
 
 int main(){
@@ -40,6 +40,6 @@ int main(){
     for(auto & ele : charset) cin >> ele;
     sort(charset.begin(), charset.end());
     // for(int s = 0 ; s <= C - L; s++)
-    select(0, 0, 0, 0);
+        select(0, 0, 0, 0);
     return 0;
 }

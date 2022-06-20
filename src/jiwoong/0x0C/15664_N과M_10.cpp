@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> seq;
 vector<int> num;
-map<int, int> cnt;
+map<int, int> cnt; // map <key, value> cnt... cnt[21억] => 21억 : 3
 int N, M, R = 0;
 
 void select(const int& start, const int& depth){
@@ -45,7 +45,7 @@ int main(){
         }
         if(!isSame) {
             num[R++] = ipt;
-            cnt.insert(make_pair(ipt, 1));   
+            cnt.insert(make_pair(ipt, 1));  // 리턴값 (  false)
         }else{
             cnt[ipt] += 1;
         }
