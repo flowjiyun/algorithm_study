@@ -1,5 +1,7 @@
 //하노이의 탑
 // 귀납적 사고 기초문제
+// n개 원판을 옮기는데  n -1 --- 1
+// 
 #include <iostream>
 #include <cmath>
 
@@ -23,7 +25,7 @@ int main(void)
     cin.tie(0);
     int n;
     cin >> n;
-    int cnt = static_cast<int>(pow(2, n) - 1); 
+    int cnt = static_cast<int>(pow(2, n) - 1); // n 옮기는 횟 수는 2^ n - 1
     cout << cnt << '\n';
     recursive(1, 3, n);
     return (0);

@@ -5,7 +5,7 @@ using namespace std;
 
 long long solve(long long A, long long B, long long C)
 {
-    if (B == 1)
+    if (B == 1) // basecondition
         return A % C;
     long long result = solve(A, B / 2, C);
     result = result * result % C;
