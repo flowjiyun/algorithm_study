@@ -16,11 +16,13 @@ vector<vector<int>> map;
 
 class Camera{
 private:
+    // (+1, 0) => (0, -1) ^ => <-  (x, y) => (y, -x)
     void turnCam(Dir& direction){
         int temp = direction.COL;
         direction.COL = -direction.ROW;
         direction.ROW = temp;
     }
+
     bool isValid(int r, int c){
         if(r < 0 || r >= N || c < 0 || c >= M) return false;
         return (map[r][c] != 6);
@@ -48,7 +50,7 @@ public:
         for(auto & side : dir) turnCam(side);
     }
     int render(vector<vector<char>> & test){
-        int suc = 0;
+        int suc = 0; // # : # (count x) , 0 => # : count
         for(auto & side : dir){
             int nr = row + side.ROW, nc = col + side.COL;
             while(isValid(nr, nc)){

@@ -9,7 +9,7 @@ int ans = 0;
 int dr[4] = {+1, 0, -1, 0};
 int dc[4] = {0, +1, 0, -1};
 int ir[4]; // 0 0 N - 1 N - 1 = > N - 1 N -1 0 0
-int ic[4];
+int ic[4]; // 0 0
 // (400 +  )* 4 ^5
 
 bool isInside(int nr, int nc){
@@ -79,6 +79,13 @@ void move(int n, vector<vector<int>>& map){
                 // }
                 // else s.push(temp[r][c]);
             }
+
+            // for (int r = 0 ; r < N ; r++) => 
+            /*
+                for(int step = 0 ; step < N ; step++){
+                    int r = init[d] + step * dr[d];
+                }
+            */ 
             for(int step = N - 1; step >= 0 ; step--){
                 r = x*(dr[d] == 0) + ir[d] + step * dr[d], c = x*(dc[d] == 0) + ic[d] + step * dc[d];
                 if(s.empty()) temp[r][c] = 0;
@@ -113,8 +120,8 @@ int main(){
     for(auto & vec : map){
         vec.resize(N);
         for(auto & ele : vec) cin >> ele;
-    }
-    // ir 0   +0 N - 1 0
+    } 
+    // ir 0  +0 N - 1 0
     ir[0] = ir[1] = ir[3] = 0;
     // ic +0  0 +0     N - 1
     ic[0] = ic[1] = ic[2] = 0;

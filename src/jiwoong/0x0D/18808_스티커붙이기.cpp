@@ -10,7 +10,7 @@ using namespace std;
 #define COL second
 int N, M, K;
 vector<vector<int>> map;
-
+// N * N : (x , y) => (y, N - x)
 void turnClockwise(vector<pair<int, int>>& matrix, int& R, int& C){
     int mr = 1000, mc = 1000;
     int temp;
@@ -96,7 +96,7 @@ int main(){
         R -= 1;
         C -= 1;
         poses.resize(P);
-        // printVis();
+        printVis();
         for(int t = 0 ; t < 4 && !suc; t++){
             for(int r = 0 ; r < N && !suc; r++){
                 for(int c = 0 ; c < M ; c++){
